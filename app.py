@@ -41,11 +41,9 @@ def webhook():
 
                     send_message(sender_id, "roger that!")
 
-                for message_type in messaging_event["message"]:
-
-                        if message_type.get("attachments"):
+                    if messaging_event["message"].get("attachments"):
                             log("image")
-                        else:
+                    else:
                             log("text")
                             #   message_text = messaging_event["message"]["text"]  # the message's text
 
