@@ -41,7 +41,7 @@ def webhook():
 
                     for message_type in messaging_event["message"]:
 
-                        if message_type.get("attachment"):
+                        if message_type.get("attachments"):
                                 log("image")
                         else:
                                 log("text")
