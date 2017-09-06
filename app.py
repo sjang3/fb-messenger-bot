@@ -43,8 +43,14 @@ def webhook():
 
                     if messaging_event["message"].get("attachments"):
                             log("image")
+                            # This area will be handle the message for image attachment
                     else:
+                        if messaging_event["message"]["text"] == "wake up":
+                            send_message(sender_id, "I woke up!")
+                        else:
+                            send_message(sender_id, messaging_event["message"]["text"])
                             log("text")
+                            # This area will be handel the message for text
                             #   message_text = messaging_event["message"]["text"]  # the message's text
 
                 if messaging_event.get("delivery"):  # delivery confirmation
