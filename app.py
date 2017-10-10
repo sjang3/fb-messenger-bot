@@ -1,7 +1,7 @@
 import os
 import sys
 import json
-
+import subprocess
 import requests
 from flask import Flask, request
 
@@ -46,7 +46,8 @@ def webhook():
                             # This area will be handle the message for image attachment
                     else:
                         if messaging_event["message"]["text"] == "wake up":
-                            send_message(sender_id, "I woke up!")
+			    result = subprocess.check_output('python sc.py', shell=True)
+                            send_message(sender_id, result)
                         else:
                             send_message(sender_id, messaging_event["message"]["text"])
                             log("text")
